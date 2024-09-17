@@ -1,13 +1,13 @@
 function AbreviaAmbiente(props) {
-    const ambiente = props.nomeAmbiente.slipt('-');
+    let nome = props.nomeAmbiente.toString();
+    const nomes = nome.split(" ")
 
-    if (ambiente.lenght < 2){
-        return ambiente
+    if (nomes.length === 1) {
+        return nomes[0]
     }
-    ambiente.splice(0,2); 
     return (
-            ambiente.join('-')
-        )
+        nomes[0] + ' ' + nomes.pop()
+    )
 }
 
 export default AbreviaAmbiente
