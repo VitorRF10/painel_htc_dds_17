@@ -1,0 +1,8 @@
+.barra_navegacao{
+    color: #000;
+}
+
+.barra_navegacao a:hover{
+    color: #fff;
+    transition: 0.5s;
+}

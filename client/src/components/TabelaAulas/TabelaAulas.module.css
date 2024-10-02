@@ -25,3 +25,14 @@
 .tabelaAulas td, .tabelaAulas th{
     padding: 4px;
 }
+@media(max-width:768px){
+  .aulas{
+    width: 100%;
+  }
+  .tabelaAulas{
+    font-size: 15px;
+  }
+  .fim{
+    display: none;
+  }
+}

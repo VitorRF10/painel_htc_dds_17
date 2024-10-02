@@ -4,12 +4,15 @@ import AbrevieData from './AbrevieData';
 import AbreviaInstrutor from './AbreviaInstrutor';
 import AbreviaUC from './AbreviaUC';
 import AbreviaAmbiente from './AbreviaAmbiente';
+import Loading from '../layout/Loading';
 
 function TabelaAulas() {
   const [aulas, setAulas] = useState([]);
-
+  const [removeLoading, setRemoveLoading] = useState(false);
   useEffect(() => {
-    carregarAulas();
+    setTimeout(() => {
+      carregarAulas();
+    }, 300);
   }, []);
 
   async function carregarAulas() {
@@ -51,12 +54,16 @@ function TabelaAulas() {
               <td>{<AbrevieData data={aula.data_hora_fim} />}</td>
               <td>{aula.turma}</td>
               <td>{<AbreviaInstrutor nomeCompleto={aula.instrutor} />}</td>
-              <td>{<AbreviaUC unidade_curricular={aula.unidade_curricular} />}</td>
+              <td>
+                {<AbreviaUC unidade_curricular={aula.unidade_curricular} />}
+              </td>
               <td>{<AbreviaAmbiente nomeAmbiente={aula.ambiente} />}</td>
             </tr>
           ))}
         </tbody>
       </table>
+      {!removeLoading && <Loading />}
+      {removeLoading && aulas.length === 0 && <h1>Não há aulas disponíveis</h1>}
     </div>
   );
 }
