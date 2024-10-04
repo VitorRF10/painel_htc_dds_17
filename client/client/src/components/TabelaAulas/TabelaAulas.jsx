@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import styles from './TabelaAulas.module.css';
-import AbrevieData from './AbrevieData';
+import AbreviaData from './AbreviaData';
 import AbreviaInstrutor from './AbreviaInstrutor';
 import AbreviaUC from './AbreviaUC';
 import AbreviaAmbiente from './AbreviaAmbiente';
 import Loading from '../layout/Loading';
 
-function TabelaAulas(tipo) {
+function TabelaAulas() {
   const [aulas, setAulas] = useState([]);
   const [removeLoading, setRemoveLoading] = useState(false);
   useEffect(() => {
@@ -24,47 +24,41 @@ function TabelaAulas(tipo) {
         },
       });
       if (!resposta) {
-        throw new Error('Erro ao buscar aula');
+        throw new Error('Erro ao buscar aulas');
       }
 
       const consulta = await resposta.json();
       setAulas(consulta);
-      //console.log(consulta);
+      setRemoveLoading(true);
+      // console.log(consulta);
     } catch (error) {
       console.log('Erro ao buscar aulas', error);
     }
   }
   return (
-    <div className={`{styles.aulas} ${tipo === 'edit' ? styles.edit : ''}`}>
+    <div className={styles.aulas}>
       <table className={styles.tabelaAulas}>
         <thead>
           <tr>
-            <th>Fim</th>
-            <th>Turma</th>
             <th>Inicio</th>
-            <th>Instrutor</th>
+            <th className={styles.fim}>Fim</th>
+            <th>Turma</th>
+            <th>Intrutor</th>
             <th>Unidade Curricular</th>
             <th>Ambiente</th>
-            {tipo === 'edit' && <th>Ações</th>}
           </tr>
         </thead>
         <tbody>
           {aulas.map((aula) => (
             <tr key={aula.id}>
-              <td>{<AbrevieData data={aula.data_hora_inicio} />}</td>
-              <td>{<AbrevieData data={aula.data_hora_fim} />}</td>
+              <td>{<AbreviaData data={aula.data_hora_inicio} />}</td>
+              <td className={styles.fim}>{<AbreviaData data={aula.data_hora_fim} />}</td>
               <td>{aula.turma}</td>
               <td>{<AbreviaInstrutor nomeCompleto={aula.instrutor} />}</td>
               <td>
                 {<AbreviaUC unidade_curricular={aula.unidade_curricular} />}
               </td>
               <td>{<AbreviaAmbiente nomeAmbiente={aula.ambiente} />}</td>
-              {tipo === 'edit' && (
-                <td>
-                  <button className="btn btn-warning">Editar</button>
-                  <button className="btn btn-danger ms-2">Deletar</button>
-                </td>
-              )}
             </tr>
           ))}
         </tbody>

@@ -1,0 +1,10 @@
+.relogio{
+    display: inline-block;
+    width: 10%;
+}
+
+@media(max-width:768px){
+    .relogio{
+        display: none;
+    }
+}

@@ -6,7 +6,7 @@
       "data_hora_inicio": "2024-08-29T21:00:00.000Z",
       "data_hora_fim": "2024-08-30T01:00:00.000Z",
       "turma": "EMP-NBM-03",
-      "instrutor": "JOEL HERBERT BARBOSA SILVA",
+      "instrutor": "JOEL",
       "unidade_curricular": "NOÇÕES BÁSICAS PARA MAQUINISTAS (CH: 219.0000)",
       "ambiente": "VTRIA-3-SALA-3004",
       "chave": null
@@ -34,14 +34,47 @@
       "chave": null
     },
     {
-      "id": "9872",
+      "id": "c3f3",
+      "data": "2024-10-03",
+      "data_hora_inicio": "18:30",
+      "data_hora_fim": "22:00",
+      "turma": "HTC-DDS-17",
+      "instrutor": "RAMON DE HOLANDA",
+      "unidade_curricular": "DESENVOLVIMENTO DE SISTEMAS",
+      "ambiente": "VTRA-5-LAB-5109",
+      "chave": null
+    },
+    {
+      "id": "7d3d",
+      "data": "2024-10-03",
+      "data_hora_inicio": "18:30",
+      "data_hora_fim": "22:00",
+      "turma": "HTC-DDS-17",
+      "instrutor": "RAMON DE HOLANDA",
+      "unidade_curricular": "DESENVOLVIMENTO DE SISTEMAS",
+      "ambiente": "VTRA-5-LAB-5109",
+      "chave": null
+    },
+    {
+      "id": "bdbb",
+      "data": "2024-10-03",
+      "data_hora_inicio": "18:30",
+      "data_hora_fim": "22:00",
+      "turma": "HTC-DDS-17",
+      "instrutor": "RAMON DE HOLANDA",
+      "unidade_curricular": "DESENVOLVIMENTO DE SISTEMAS",
+      "ambiente": "VTRA-5-LAB-5109",
+      "chave": null
+    },
+    {
+      "id": "a1a8",
       "data": "2024-10-03T00:00:00.000Z",
-      "data_hora_inicio": "2024-10-03T21:20:00.000Z",
-      "data_hora_fim": "2024-10-03T22:21:00.000Z",
-      "turma": "dfbdf",
-      "instrutor": "bdfbdf",
-      "unidade_curricular": "bdf",
-      "ambiente": "bdfbdf",
+      "data_hora_inicio": "2024-10-03T18:30:00.000Z",
+      "data_hora_fim": "2024-10-03T22:00:00.000Z",
+      "turma": "HTC-DDS-17",
+      "instrutor": "LAHRA VELOSO",
+      "unidade_curricular": "GEOLOGIA ESTUDO AVANÇADO DAS PEDRAS",
+      "ambiente": "VTRA-SALA-AULA",
       "chave": null
     }
   ],
