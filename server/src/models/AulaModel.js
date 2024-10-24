@@ -26,9 +26,8 @@ export async function createAula(aula){
         console.log('Aula Cadastrada')
         return [201,'Aula Cadastrada'];
     } catch (error) {
-        const mensagem = await error.json();
-        console.log(mensagem)
-        return [500,mensagem]
+        console.log(error)
+        return [500,error]
     }
 }
 
@@ -77,7 +76,10 @@ export async function updateAula(aula,id) {
     try {
         const [retorno] = await conexao.query(sql,params);
         console.log('Atualizando Aula');
-        return [200,retorno];
+        if(retorno.affectedRows < 1){
+            return [404, {message:"Aula não encontrada"}];    
+        }
+        return [200,{message:"Aula atualizada"}];
     } catch (error) {
         console.log(error);
         return [500,error];
@@ -93,7 +95,28 @@ export async function deleteAula(id) {
     try {
         const [retorno] = await conexao.query(sql,params);
         console.log('Deletando Aula');
-        return [200,retorno];
+        if(retorno.affectedRows < 1){
+            return [404, {message:"Aula não encontrada"}];    
+        }
+        return [200,{message:"Aula deletada"}];
+    } catch (error) {
+        console.log(error);
+        return [500,error];
+    }
+}
+
+export async function getOneAula(id) {
+    console.log("AulaModel: getOneAula");
+    const conexao = mysql.createPool(db);
+    const sql = 'SELECT * FROM aulas WHERE id = ?';
+    const params = [id]
+    try {
+        const [retorno] = await conexao.query(sql,params);
+        console.log('Mostrando Aula');
+        if(retorno.affectedRows < 1){
+            return [404, {message:"Aula não encontrada"}];    
+        }    
+        return [200, retorno[0]];
     } catch (error) {
         console.log(error);
         return [500,error];
